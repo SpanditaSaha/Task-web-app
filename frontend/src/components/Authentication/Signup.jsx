@@ -73,7 +73,10 @@ const Signup = () => {
 
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      navigate("/dashboard");
+      const storedUserInfo = JSON.parse(localStorage.getItem("userInfo"));
+      const userId = storedUserInfo._id;
+      console.log(userId);
+      navigate(`/dashboard/${userId}`);
     } catch (error) {
       toast({
         title: "Something Happend!!",
