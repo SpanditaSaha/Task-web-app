@@ -8,6 +8,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const Task = require("./models/taskModel");
 const cron = require("node-cron");
 const reminderService = require("./services/reminderService");
+const path = require("path");
 
 dotenv.config();
 connectDB();
@@ -16,9 +17,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello");
+// });
 cron.schedule("0 0 * * *", () => {
   reminderService.sendReminders();
 });
@@ -27,12 +28,12 @@ app.use("/api/user", userRoutes);
 app.use("/api/task", taskRoutes);
 
 const __dirname1 = path.resolve();
-
+console.log(path.join(__dirname1, "../frontend/dist"));
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.use(express.static(path.join(__dirname1, "../frontend/dist")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+    res.sendFile(path.resolve(__dirname1, "frontend", "dist", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {
