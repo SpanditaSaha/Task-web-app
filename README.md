@@ -93,6 +93,10 @@ npm run dev
 
   ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/85521022-78c5-4af0-bbae-e9288a0e8c95)
 
+  Password Recovery:
+
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/95d6b35c-ee75-4584-82c5-3b037e2c58db)
+
 
 - ### Dashboard for displaying Upcoming, OverDue and Completed Tasks
 
@@ -114,9 +118,9 @@ npm run dev
   ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/7c003bc7-d4c1-4d75-8ae2-d0eaf568d00b)
 
 
-## Demo Video
+- ### Shared Tasks section where a user can see which tasks are shared with him
 
-  
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/b60b9eab-f3a6-4796-80cd-9b05bf9900a5)
 
 
 # Made By
