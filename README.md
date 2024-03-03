@@ -63,7 +63,7 @@ cd backend
 
 ```
 
-npm run start
+npm run dev
 
 ```
 
@@ -125,7 +125,7 @@ npm run dev
 
 - ### Responsive Design
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/0ca095b6-93eb-439e-a262-998dc3dccfa3)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/6f0e9e57-fd6d-4695-80ff-fcf1d178b589)
 
 
 
