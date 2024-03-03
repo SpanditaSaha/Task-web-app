@@ -201,4 +201,9 @@
     margin-top: 22px;
     margin-left: 2rem;
   }
+
+  .logout-btn {
+    width: 9rem;
+    margin: 1.1rem;
+  }
 }
