@@ -25,6 +25,9 @@ const Header = () => {
             <Link to={`/dashboard/taskmanager/${userId}`}>Collaborate</Link>
           </li>
           <li>
+            <Link to={`/dashboard/sharedtask/${userId}`}>Shared Tasks</Link>
+          </li>
+          <li>
             <Button
               onClick={() => {
                 localStorage.removeItem("userInfo");

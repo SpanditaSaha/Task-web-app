@@ -188,6 +188,19 @@ const getAllTasks = asyncHandler(async (req, res) => {
   }
 });
 
+/************************************* Get shared tasks *****************************/
+const getSharedTasks = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const tasks = await Task.find({ collaborators: userId });
+    res.json({ tasks });
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
 /**************************** Share Task ****************************************/
 const shareTask = asyncHandler(async (req, res) => {
   const { taskId } = req.params;
@@ -227,4 +240,5 @@ module.exports = {
   getOverviewTasks,
   getProgressCompleted,
   shareTask,
+  getSharedTasks,
 };

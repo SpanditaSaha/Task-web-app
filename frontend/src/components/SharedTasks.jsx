@@ -11,7 +11,7 @@ const TaskManager = () => {
   const { user, setUser } = UserState();
   const socket = io("http://localhost:3000", { transports: ["websocket"] });
   useEffect(() => {
-    fetchTasks();
+    fetchSharedTasks();
 
     socket.on("taskUpdate", (updatedTask) => {
       setTasks((prevTasks) =>
@@ -26,15 +26,18 @@ const TaskManager = () => {
       socket.off("taskUpdated");
     };
   }, []);
-  const fetchTasks = async () => {
+  const fetchSharedTasks = async () => {
     try {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const response = await axios.get(`/api/task/tasks/${user._id}`, config);
-      console.log("Fetch tasks all data : ", response.data.tasks);
+      const response = await axios.get(
+        `/api/task/tasks/shared/${user._id}`,
+        config
+      );
+      console.log("Fetch tasks all shared tasks data : ", response.data.tasks);
 
       setTasks(response.data.tasks);
     } catch (error) {

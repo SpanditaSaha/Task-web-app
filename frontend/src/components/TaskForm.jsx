@@ -18,13 +18,19 @@ const TaskForm = ({ task, updateTask, userId }) => {
     setUpdatedTask({ ...updatedTask, [name]: value });
   };
 
+  console.log(userId);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userId);
-    if (task.collaborators.includes(userId)) {
-      console.log(userId);
+
+    console.log("clicked");
+    console.log("userId is :", userId);
+    console.log("Task is: ", task);
+    console.log(task.createdBy);
+    if (task.collaborators.includes(userId) || task.createdBy === userId) {
+      console.log("inside if:", userId);
       updateTask(task._id, updatedTask, userId);
-      console.log(updatedTask);
+      console.log(updateTask);
       if (updateTask) {
         toast({
           title: "Task Updated Successfully!!",
@@ -46,7 +52,6 @@ const TaskForm = ({ task, updateTask, userId }) => {
       });
     }
   };
-
   return (
     <form onSubmit={handleSubmit}>
       <Stack spacing={4}>

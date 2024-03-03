@@ -8,6 +8,7 @@ import Root from "./components/pages/Root";
 import CreateTask from "./components/CreateTask";
 import MyTasks from "./components/MyTasks";
 import TaskManager from "./components/TaskManager";
+import SharedTasks from "./components/SharedTasks";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/taskmanager/:userId",
         element: <TaskManager />,
+      },
+      {
+        path: "/dashboard/sharedtask/:userId",
+        element: <SharedTasks />,
       },
     ],
   },

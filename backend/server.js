@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname1, "../frontend/dist")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "frontend", "dist", "index.html"))
+    res.sendFile(path.resolve(__dirname1, "../frontend", "dist", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {
@@ -61,20 +61,27 @@ io.on("connection", (socket) => {
     console.log("Client disconnected");
   });
 
-  socket.on("taskUpdate", async (userId, taskId, updatedTask) => {
+  socket.on("taskUpdate", async (taskId, updatedTask, userId) => {
     try {
+      console.log(userId);
       const task = await Task.findOneAndUpdate(
-        { _id: taskId, collaborators: userId },
+        {
+          _id: taskId,
+          $or: [{ createdBy: userId }, { collaborators: userId }],
+        },
         updatedTask,
         { new: true }
       );
-
-      if (!task) {
-        console.log("Task not found or user is not a collaborator.");
-        return;
+      console.log(userId);
+      console.log(task);
+      console.log(task.createdBy);
+      console.log(task.collaborators);
+      if (updatedTask) {
+        console.log("Task updated successfully:", updatedTask);
+      } else {
+        console.log("You are not authorized to update this task");
       }
 
-      console.log(taskId);
       socket.emit("taskUpdate", task);
     } catch (error) {
       console.error(error);

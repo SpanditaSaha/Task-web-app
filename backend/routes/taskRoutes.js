@@ -6,6 +6,7 @@ const {
   getProgressCompleted,
   getProgressnotCompleted,
   shareTask,
+  getSharedTasks,
 } = require("../controllers/taskControllers");
 const { getTasksByCategory } = require("../controllers/taskControllers");
 const { taskCompleted } = require("../controllers/taskControllers");
@@ -29,6 +30,9 @@ router.get("/tasks/notcompleted/:userId", protect, getProgressnotCompleted);
 
 /***************** get all tasks **************************/
 router.get("/tasks/:userId", protect, getAllTasks);
+
+/************** get shared tasks **********************/
+router.get("/tasks/shared/:userId", protect, getSharedTasks);
 
 /******* get dashboard tasks ******/
 router.get("/overview/:userId", protect, getOverviewTasks);
