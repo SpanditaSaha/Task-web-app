@@ -100,27 +100,33 @@ npm run dev
 
 - ### Dashboard for displaying Upcoming, OverDue and Completed Tasks
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/18b0e475-de42-4cf3-8ac0-b26ee9cc4cb0)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/145d0585-353e-42a7-84cf-2497f790d7cb)
 
 
 - ### Create a new task
 
- ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/69dd8b1f-ee6e-4ff0-b430-ad297a824db5)
+ ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/9c9a569c-678e-43c9-a882-c45ef44e02e9)
 
 
 - ### My Tasks section for allowing users to mark tasks as completed or in progress and provide a way for users to visualize the progress of their tasks. Also implement filters and sorting options for tasks based on due date,priority, and completion status.
 
- ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/3530f13d-794a-4c23-86b1-d1d7288fa1f7)
-
+ ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/79cd48d3-699f-4e26-9856-3ca3c6b19e43)
+ 
 
 - ### Collaborate section for allowing users to collaborate on tasks by sharing them with other users and implementing real-time updates for collaborative features.
 
- ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/7ae19ef1-709d-4450-bd6d-5b7b1f580466)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/05669c18-1250-4b1a-8867-16ccdb3ade1f)
 
 
 - ### Shared Tasks section where a user can see which tasks are shared with him
 
- ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/3510422b-d577-4746-aa3f-efc4bea07f1a)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/96648f5c-b176-40c5-ab5b-9a28e50c80dd)
+
+
+- ### Responsive Design
+
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/0ca095b6-93eb-439e-a262-998dc3dccfa3)
+
 
 
 # Made By
