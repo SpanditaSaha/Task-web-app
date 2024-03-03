@@ -93,30 +93,40 @@ npm run dev
 
   ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/85521022-78c5-4af0-bbae-e9288a0e8c95)
 
+  Password Recovery:
+
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/95d6b35c-ee75-4584-82c5-3b037e2c58db)
+
 
 - ### Dashboard for displaying Upcoming, OverDue and Completed Tasks
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/871c26d8-2b26-45a3-ac62-6a1757dfa524)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/145d0585-353e-42a7-84cf-2497f790d7cb)
 
 
 - ### Create a new task
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/3feff400-8964-4246-a567-96fbab2869c5)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/9c9a569c-678e-43c9-a882-c45ef44e02e9)
 
 
-- ### My Taks section for allowing users to mark tasks as completed or in progress and provide a way for users to visualize the progress of their tasks. Also implement filters and sorting options for tasks based on due date,priority, and completion status.
+- ### My Tasks section for allowing users to mark tasks as completed or in progress and provide a way for users to visualize the progress of their tasks. Also implement filters and sorting options for tasks based on due date,priority, and completion status.
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/38a82a87-cbeb-4ee8-95d1-d79a95977c7e)
-
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/79cd48d3-699f-4e26-9856-3ca3c6b19e43)
+ 
 
 - ### Collaborate section for allowing users to collaborate on tasks by sharing them with other users and implementing real-time updates for collaborative features.
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/7c003bc7-d4c1-4d75-8ae2-d0eaf568d00b)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/e583593e-8034-48bd-aea1-43d63c77d6a0)
 
 
-## Demo Video
+- ### Shared Tasks section where a user can see which tasks are shared with him
 
-  
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/96648f5c-b176-40c5-ab5b-9a28e50c80dd)
+
+
+- ### Responsive Design
+
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/0ca095b6-93eb-439e-a262-998dc3dccfa3)
+
 
 
 # Made By
