@@ -63,11 +63,11 @@ const TaskManager = () => {
             p={"7"}
           >
             <Flex direction="column" alignItems="center">
-              <Heading as="h3" mb={2}>
+              {/* <Heading as="h3" mb={2}>
                 {task.title}
               </Heading>
 
-              <p>{task.description}</p>
+              <p>{task.description}</p> */}
               <TaskForm task={task} updateTask={updateTask} userId={user._id} />
               <TaskSharingForm taskId={task._id} />
             </Flex>

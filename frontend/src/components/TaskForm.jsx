@@ -8,6 +8,7 @@ import {
   Stack,
   Button,
   useToast,
+  Heading,
 } from "@chakra-ui/react";
 
 const TaskForm = ({ task, updateTask, userId }) => {
@@ -54,9 +55,12 @@ const TaskForm = ({ task, updateTask, userId }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
+      <Heading as="h3" mb={2}>
+        {updatedTask.title}
+      </Heading>
       <Stack spacing={4}>
         <FormControl>
-          <FormLabel>Title</FormLabel>
+          {/* <FormLabel>Title</FormLabel> */}
           <Input
             type="text"
             name="title"
@@ -65,7 +69,7 @@ const TaskForm = ({ task, updateTask, userId }) => {
           />
         </FormControl>
         <FormControl>
-          <FormLabel>Description</FormLabel>
+          <FormLabel>Description: {updatedTask.description}</FormLabel>
           <Textarea
             name="description"
             value={updatedTask.description}
