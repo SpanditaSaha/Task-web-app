@@ -105,17 +105,17 @@ npm run dev
 
 - ### Create a new task
 
- ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/9c9a569c-678e-43c9-a882-c45ef44e02e9)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/9c9a569c-678e-43c9-a882-c45ef44e02e9)
 
 
 - ### My Tasks section for allowing users to mark tasks as completed or in progress and provide a way for users to visualize the progress of their tasks. Also implement filters and sorting options for tasks based on due date,priority, and completion status.
 
- ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/79cd48d3-699f-4e26-9856-3ca3c6b19e43)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/79cd48d3-699f-4e26-9856-3ca3c6b19e43)
  
 
 - ### Collaborate section for allowing users to collaborate on tasks by sharing them with other users and implementing real-time updates for collaborative features.
 
-  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/05669c18-1250-4b1a-8867-16ccdb3ade1f)
+  ![image](https://github.com/SpanditaSaha/Task-web-app/assets/67426987/e583593e-8034-48bd-aea1-43d63c77d6a0)
 
 
 - ### Shared Tasks section where a user can see which tasks are shared with him
