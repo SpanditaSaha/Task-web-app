@@ -52,7 +52,7 @@ const TaskManager = () => {
   return (
     <Flex direction="column" align="center" p={4}>
       <Heading as="h1" mb={4} color={"#40679E"}>
-        Task Manager
+        Shared Tasks
       </Heading>
 
       <UnorderedList listStyleType="none" p={0}>
