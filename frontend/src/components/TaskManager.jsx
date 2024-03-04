@@ -17,10 +17,10 @@ const TaskManager = () => {
   const [tasks, setTasks] = useState([]);
   const { user, setUser } = UserState();
   const [socketConnected, setSocketConnected] = useState(false);
-  const socket = io("http://localhost:3000", { transports: ["websocket"] });
-  // const socket = io("https://task-web-app.onrender.com", {
-  //   transports: ["websocket"],
-  // });
+  //const socket = io("http://localhost:3000", { transports: ["websocket"] });
+  const socket = io("https://task-web-app.onrender.com", {
+    transports: ["websocket"],
+  });
 
   // useEffect(() => {
   //   fetchTasks();

@@ -50,7 +50,8 @@ const server = app.listen(PORT, (req, res) => {
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    origin: "https://task-web-app.onrender.com",
     methods: ["GET", "POST"],
   },
 });
