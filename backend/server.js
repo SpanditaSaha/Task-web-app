@@ -44,15 +44,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-// const io = new Server(server);
-
-const io = require("socket.io")(server, {
-  cors: {
-    // origin: "http://localhost:3000",
-    origin: "https://task-web-app.onrender.com",
-    methods: ["GET", "POST"],
-  },
-});
+const io = new Server(server);
 
 io.on("connection", (socket) => {
   console.log("A new user connected", socket.id);
@@ -77,8 +69,8 @@ io.on("connection", (socket) => {
         console.log("You are not authorized to update this task");
       }
 
-      socket.emit("showtaskUpdate", task);
-      socket.broadcast.emit("showtaskUpdate", task);
+      io.emit("showtaskUpdate", task);
+      //socket.broadcast.emit("showtaskUpdate", task);
     } catch (error) {
       console.error(error);
     }

@@ -14,7 +14,10 @@ import { io } from "socket.io-client";
 
 const TaskForm = ({ task, userId }) => {
   const [updatedTask, setUpdatedTask] = useState(task);
-  const [updatedTitle, setUpdatedTitle] = useState(updatedTask.title);
+  const [updatedTitle, setNewUpdatedTitle] = useState(updatedTask.title);
+  const [updatedDescription, setUpdatedDescription] = useState(
+    updatedTask.description
+  );
   const toast = useToast();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,9 +26,7 @@ const TaskForm = ({ task, userId }) => {
 
   console.log(userId);
 
-  const socket = io("https://task-web-app.onrender.com", {
-    transports: ["websocket"],
-  });
+  const socket = io("http://localhost:3000", { transports: ["websocket"] });
   const updateTask = (taskId, updatedTask, userId) => {
     socket.emit("taskUpdate", taskId, updatedTask, userId);
   };
@@ -62,11 +63,13 @@ const TaskForm = ({ task, userId }) => {
       });
     }
   };
-
   socket.on("showtaskUpdate", (task) => {
     console.log("Task updated in client;", task);
-    console.log("Task updated in client;", task.title);
-    setUpdatedTitle(task.title);
+    console.log("Task updated in client title: ", task.title);
+    if (updatedTask._id === task._id) {
+      setNewUpdatedTitle(task.title);
+      setUpdatedDescription(task.description);
+    }
   });
 
   return (
@@ -74,7 +77,7 @@ const TaskForm = ({ task, userId }) => {
       <Heading as="h4" mb={2}>
         {updatedTitle}
       </Heading>
-      {/* <Heading>Updated as : {updatedTitle}</Heading> */}
+      {/* <Heading>Updated ass : {updatedTitle}</Heading> */}
       <Stack spacing={4}>
         <FormControl>
           {/* <FormLabel>Title</FormLabel> */}
@@ -86,7 +89,7 @@ const TaskForm = ({ task, userId }) => {
           />
         </FormControl>
         <FormControl>
-          <FormLabel>Description: {updatedTask.description}</FormLabel>
+          <FormLabel>Description: {updatedDescription}</FormLabel>
           <Textarea
             name="description"
             value={updatedTask.description}
