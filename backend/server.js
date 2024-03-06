@@ -44,7 +44,15 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-const io = new Server(server);
+// const io = new Server(server);
+
+const io = require("socket.io")(server, {
+  cors: {
+    // origin: "http://localhost:3000",
+    origin: "https://task-web-app.onrender.com",
+    methods: ["GET", "POST"],
+  },
+});
 
 io.on("connection", (socket) => {
   console.log("A new user connected", socket.id);
