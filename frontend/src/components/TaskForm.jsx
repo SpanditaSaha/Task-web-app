@@ -26,7 +26,9 @@ const TaskForm = ({ task, userId }) => {
 
   console.log(userId);
 
-  const socket = io("http://localhost:3000", { transports: ["websocket"] });
+  const socket = io("https://task-web-app.onrender.com", {
+    transports: ["websocket"],
+  });
   const updateTask = (taskId, updatedTask, userId) => {
     socket.emit("taskUpdate", taskId, updatedTask, userId);
   };
