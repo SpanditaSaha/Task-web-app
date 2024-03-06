@@ -10,9 +10,11 @@ import {
   useToast,
   Heading,
 } from "@chakra-ui/react";
+import { io } from "socket.io-client";
 
-const TaskForm = ({ task, updateTask, userId }) => {
+const TaskForm = ({ task, userId }) => {
   const [updatedTask, setUpdatedTask] = useState(task);
+  const [updatedTitle, setUpdatedTitle] = useState(updatedTask.title);
   const toast = useToast();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,6 +22,11 @@ const TaskForm = ({ task, updateTask, userId }) => {
   };
 
   console.log(userId);
+
+  const socket = io("http://localhost:3000", { transports: ["websocket"] });
+  const updateTask = (taskId, updatedTask, userId) => {
+    socket.emit("taskUpdate", taskId, updatedTask, userId);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,11 +60,19 @@ const TaskForm = ({ task, updateTask, userId }) => {
       });
     }
   };
+
+  socket.on("showtaskUpdate", (task) => {
+    console.log("Task updated in client;", task);
+    console.log("Task updated in client;", task.title);
+    setUpdatedTitle(task.title);
+  });
+
   return (
     <form onSubmit={handleSubmit}>
-      <Heading as="h3" mb={2}>
-        {updatedTask.title}
+      <Heading as="h4" mb={2}>
+        {updatedTitle}
       </Heading>
+      {/* <Heading>Updated as : {updatedTitle}</Heading> */}
       <Stack spacing={4}>
         <FormControl>
           {/* <FormLabel>Title</FormLabel> */}

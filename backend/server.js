@@ -1,6 +1,7 @@
 const express = require("express");
+const http = require("http");
 const dotenv = require("dotenv");
-const socketIo = require("socket.io");
+const { Server } = require("socket.io");
 const connectDB = require("./config/config");
 const { errorHandler, notFound } = require("./middlewares/errorMiddleware");
 const userRoutes = require("./routes/userRoutes");
@@ -15,11 +16,10 @@ connectDB();
 const app = express();
 app.use(express.json());
 
+const server = http.createServer(app);
+
 const PORT = process.env.PORT || 3000;
 
-// app.get("/", (req, res) => {
-//   res.send("hello");
-// });
 cron.schedule("0 0 * * *", () => {
   reminderService.sendReminders();
 });
@@ -44,14 +44,48 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-const server = app.listen(PORT, (req, res) => {
+const io = new Server(server);
+
+io.on("connection", (socket) => {
+  console.log("A new user connected", socket.id);
+  socket.on("taskUpdate", async (taskId, updatedTask, userId) => {
+    try {
+      console.log(userId);
+      const task = await Task.findOneAndUpdate(
+        {
+          _id: taskId,
+          $or: [{ createdBy: userId }, { collaborators: userId }],
+        },
+        updatedTask,
+        { new: true }
+      );
+      console.log(userId);
+      console.log(task);
+      console.log(task.createdBy);
+      console.log(task.collaborators);
+      if (updatedTask) {
+        console.log("Task updated successfully:", updatedTask);
+      } else {
+        console.log("You are not authorized to update this task");
+      }
+
+      socket.emit("showtaskUpdate", task);
+      socket.broadcast.emit("showtaskUpdate", task);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+});
+
+server.listen(PORT, (req, res) => {
   console.log(`server is running at http://localhost:${PORT}`);
 });
 
-const io = require("socket.io")(server, {
+/**************** old code for socket io ****************************** */
+/*const io = require("socket.io")(server, {
   cors: {
-    // origin: "http://localhost:3000",
-    origin: "https://task-web-app.onrender.com",
+    origin: "http://localhost:3000",
+    // origin: "https://task-web-app.onrender.com",
     methods: ["GET", "POST"],
   },
 });
@@ -63,10 +97,7 @@ io.on("connection", (socket) => {
     socket.emit("connected");
   });
 
-  // socket.on("join room", (room) => {
-  //   socket.join(room);
-  //   console.log("User joined room", +room);
-  // });
+  
 
   // socket.on("disconnect", () => {
   //   console.log("Client disconnected");
@@ -94,13 +125,11 @@ io.on("connection", (socket) => {
       }
 
       socket.emit("taskUpdate", task);
+      socket.broadcast.emit("taskUpdate", task);
     } catch (error) {
       console.error(error);
     }
   });
 
-  socket.on("taskUpdate", async (taskId, updatedTask, userId) => {
-    console.log(taskId, updatedTask, userId);
-    socket.broadcast.emit("taskUpdate", taskId, updatedTask, userId);
-  });
-});
+ 
+});*/

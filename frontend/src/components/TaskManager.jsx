@@ -12,15 +12,15 @@ import {
   UnorderedList,
 } from "@chakra-ui/react";
 import TaskSharingForm from "./TaskSharingForm";
-var socket;
+
 const TaskManager = () => {
   const [tasks, setTasks] = useState([]);
   const { user, setUser } = UserState();
-  const [socketConnected, setSocketConnected] = useState(false);
-  //const socket = io("http://localhost:3000", { transports: ["websocket"] });
-  const socket = io("https://task-web-app.onrender.com", {
-    transports: ["websocket"],
-  });
+
+  // const socket = io("http://localhost:3000", { transports: ["websocket"] });
+  // const socket = io("https://task-web-app.onrender.com", {
+  //   transports: ["websocket"],
+  // });
 
   // useEffect(() => {
   //   fetchTasks();
@@ -54,31 +54,29 @@ const TaskManager = () => {
     }
   };
 
-  useEffect(() => {
-    // const socket = io("http://localhost:3000", { transports: ["websocket"] });
-    socket.emit("setup", user);
-    socket.on("connection", () => setSocketConnected(true));
-  }, []);
+  // useEffect(() => {
+  //   // const socket = io("http://localhost:3000", { transports: ["websocket"] });
+  //   socket.emit("setup", user);
+  //   socket.on("connection", () => setSocketConnected(true));
+  // }, []);
 
   useEffect(() => {
     fetchTasks();
-    socket.on("taskUpdate", (updatedTask) => {
-      setTasks((prevTasks) =>
-        prevTasks.map((task) =>
-          task._id === updatedTask._id ? updatedTask : task
-        )
-      );
-      console.log("Task updated:", updatedTask);
-    });
+    // socket.on("taskUpdate", (updatedTask) => {
+    //   setTasks((prevTasks) =>
+    //     prevTasks.map((task) =>
+    //       task._id === updatedTask._id ? updatedTask : task
+    //     )
+    //   );
+    //   console.log("Task updated:", updatedTask);
+    // });
   }, []);
 
-  const handleClickHandler = (id) => {
-    console.log("task id is: ", id);
-  };
+  // const updateTask = (taskId, updatedTask, userId) => {
+  //   socket.emit("taskUpdate", taskId, updatedTask, userId);
+  // };
 
-  const updateTask = (taskId, updatedTask, userId) => {
-    socket.emit("taskUpdate", taskId, updatedTask, userId);
-  };
+  //socket.on("showtaskUpdate", (task) => (updatedTitle = task.title));
 
   return (
     <Flex direction="column" align="center" p={4}>
@@ -97,14 +95,8 @@ const TaskManager = () => {
             p={"7"}
           >
             <Flex direction="column" alignItems="center">
-              {/* <Heading as="h3" mb={2}>
-               
-                {task.title}
-              
-              </Heading> */}
-
-              {/* <p>{task.description}</p> */}
-              <TaskForm task={task} updateTask={updateTask} userId={user._id} />
+              <TaskForm task={task} userId={user._id} />
+              {/* <TaskForm task={task} updateTask={updateTask} userId={user._id} /> */}
               <TaskSharingForm taskId={task._id} />
             </Flex>
           </ListItem>
