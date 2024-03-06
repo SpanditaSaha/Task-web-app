@@ -6,10 +6,11 @@ handles data management, user authentication, real-time collaboration and suitab
 organization.
 
 ## Tech Stacks:
-### Client: React JS
-### Server: Node JS, Express JS
-### Database: MongoDB
-### Real-Time Collaboration: Socket.io
+ ### Client: React JS
+ ### Server: Node JS, Express JS
+ ### Database: MongoDB
+ ### Real-Time Collaboration: Socket.io
+
 
 ## Demo
 [Live - A Multi Featured Task Web App](https://task-web-app.onrender.com "Visit Live Project")
