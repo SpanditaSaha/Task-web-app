@@ -2,13 +2,14 @@
 
 A comprehensive web-based task management application that
 allows users to organize and track their tasks efficiently. This project 
-handles data management, user authentication, and suitable features for task
+handles data management, user authentication, real-time collaboration and suitable features for task
 organization.
 
 ## Tech Stacks:
 ### Client: React JS
 ### Server: Node JS, Express JS
 ### Database: MongoDB
+### Real-Time Collaboration: Socket.io
 
 ## Demo
 [Live - A Multi Featured Task Web App](https://task-web-app.onrender.com "Visit Live Project")
